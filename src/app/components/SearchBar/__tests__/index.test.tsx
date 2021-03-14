@@ -5,7 +5,9 @@ import { SearchBar } from '..';
 
 describe('<SearchBar  />', () => {
   it('should match snapshot', () => {
-    const loadingIndicator = render(<SearchBar initialValue="puppies" />);
+    const loadingIndicator = render(
+      <SearchBar onChange={text => console.log(text)} initialValue="puppies" />,
+    );
     expect(loadingIndicator.container.firstChild).toMatchSnapshot();
   });
 });
