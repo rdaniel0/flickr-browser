@@ -12,6 +12,8 @@ import {
 } from './slice/selectors';
 import { LoadingWrapper } from 'app/components/LoadingWrapper';
 import { SearchBar } from 'app/components/SearchBar';
+import { FlickerPhotoList } from './FlickerPhotoList';
+
 export function HomePage() {
   const dispatch = useDispatch();
 
@@ -33,6 +35,7 @@ export function HomePage() {
       <SearchBar initialValue={searchText} onChange={onChangeSearch} />
       <Wrapper>
         <LoadingWrapper isLoading={isLoading} error={error}>
+          <FlickerPhotoList items={results?.items} />
         </LoadingWrapper>
       </Wrapper>
     </>
