@@ -7,8 +7,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 
+import { useDebouncedEffect } from 'hooks';
+
 interface Props {
   onChange: (text: string) => void;
+  delay?: number;
   initialValue?: string;
 }
 
@@ -21,8 +24,16 @@ export function SearchBar(props: Props) {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchText = e.currentTarget.value;
     setSearchText(searchText);
-    props.onChange(searchText);
   };
+
+  // We're going to debounce user input before passing the change back up
+  useDebouncedEffect(
+    () => {
+      props.onChange(searchText);
+    },
+    props.delay || 250,
+    [searchText],
+  );
 
   return (
     <Wrapper>
