@@ -2,10 +2,8 @@ import { ApiResponse } from './Models';
 
 const urlPublicPhotos = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1`;
 
-// Borrowing public proxy to avoid CORS on client browser, since Flickr server doesn't send CORS headers from the feeds endpoint.
-// In a real environment, you should deploy your own proxy server.
-const GET = (url: string) =>
-  fetch('https://cors-anywhere.herokuapp.com/' + url);
+// Using a proxy to prevent pre-flight CORS on client browser, since Flickr server doesn't send CORS headers from the feeds endpoint.
+const GET = (url: string) => fetch('https://danielr-cors.herokuapp.com/' + url);
 
 const FlickrApi = {
   getPhotoFeed: (tags: string) => {
