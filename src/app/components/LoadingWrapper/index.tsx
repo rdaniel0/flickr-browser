@@ -26,13 +26,17 @@ export function LoadingWrapper(props: Props) {
   if (props.error) {
     return (
       <Div>
-        <p>Error: {props.error}</p>
+        <Label>Oops! Something went wrong</Label>
       </Div>
     );
   }
 
   return props.children;
 }
+
+const Label = styled.label`
+  color: white;
+`;
 
 const Div = styled.div`
   display: flex;
