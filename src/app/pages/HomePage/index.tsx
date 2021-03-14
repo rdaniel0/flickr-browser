@@ -9,6 +9,7 @@ import {
   selectResults,
   selectSearchText,
 } from './slice/selectors';
+import { LoadingWrapper } from 'app/components/LoadingWrapper';
 import { SearchBar } from 'app/components/SearchBar';
 export function HomePage() {
   const dispatch = useDispatch();
@@ -29,6 +30,15 @@ export function HomePage() {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <SearchBar initialValue={searchText} onChange={onChangeSearch} />
+      <Wrapper>
+        <LoadingWrapper isLoading={isLoading} error={error}>
+        </LoadingWrapper>
+      </Wrapper>
     </>
   );
 }
+
+const Wrapper = styled.div`
+  height: 100%;
+  padding-top: 4rem;
+`;
