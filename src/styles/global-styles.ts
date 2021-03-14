@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Verdana, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    background: rgba(0, 0, 0, 0.7);
   }
 
   #root {
