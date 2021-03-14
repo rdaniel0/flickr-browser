@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { useSearchSlice } from './slice';
 import {
@@ -26,8 +27,8 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
-        <meta name="description" content="A Boilerplate application homepage" />
+        <title>Flickr Photo Browser</title>
+        <meta name="description" content="A Flickr public photo browser" />
       </Helmet>
       <SearchBar initialValue={searchText} onChange={onChangeSearch} />
       <Wrapper>
