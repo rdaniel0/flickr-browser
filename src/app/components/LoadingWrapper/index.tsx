@@ -5,7 +5,8 @@
  */
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { GridLoader } from 'react-spinners';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 interface Props {
   isLoading: boolean;
@@ -17,7 +18,7 @@ export function LoadingWrapper(props: Props) {
   if (props.isLoading) {
     return (
       <Div>
-        <GridLoader color="white" size={15} />
+        <Loader type="Grid" color="white" height={50} width={50} />
       </Div>
     );
   }
